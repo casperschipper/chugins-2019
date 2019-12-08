@@ -13,6 +13,17 @@ To compile and install all chugins:
     make [osx|win32|linux]
     sudo make install
 
+## notes to self (Casper)
+
+* Had to compile chuck from source because of DL incompatibility: 
+
+` [chuck]:(3:SEVERE):  |  | error loading chugin 'Overdrive.chug', skipping
+[chuck]:(3:SEVERE):  |  | error from chuck_dl: 'DL version not supported: 7.0 in '/usr/local/lib/chuck/Overdrive.chug'' `
+
+* Had to update some code stuff because C++ changed. Especially inline got complaints as well as a few Floor and Round Calls.
+
+
+
 List of Current Chugins
 --
 
