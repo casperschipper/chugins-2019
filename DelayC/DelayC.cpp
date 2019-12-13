@@ -124,7 +124,7 @@ CK_DLL_MFUN(delayc_max)
     int size = 2 + (int) floor(GET_NEXT_DUR(ARGS)); // int size of the delay translated from dur into samples
     if (dcdata->buffer) delete [] dcdata->buffer;   //delete old delay memory
     dcdata->buffer = new float[size];              // allocate the new size
-    for (int i;i<size;i++) dcdata->buffer[i] = 0;  // zero the delay line
+    for (int i=0;i<size;i++) dcdata->buffer[i] = 0;  // zero the delay line
     dcdata->max = size;  // set the max in the delayc struct
     RETURN->v_dur = (t_CKDUR) size - 2;
 }
@@ -155,6 +155,6 @@ CK_DLL_MFUN(delayc_getDelay)
 CK_DLL_MFUN(delayc_clear)
 {
     delaycData * dcdata = (delaycData *) OBJ_MEMBER_INT(SELF, delayc_data_offset);
-    for (int i;i<dcdata->max;i++) dcdata->buffer[i] = 0;
+    for (int i=0;i<dcdata->max;i++) dcdata->buffer[i] = 0;
 }
 
