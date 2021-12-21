@@ -2,8 +2,10 @@
 ARCHS?=x86_64
 ARCHOPTS=$(addprefix -arch ,$(ARCHS))
 
-FLAGS+=-mmacosx-version-min=10.9 -D__MACOSX_CORE__ -I$(CK_SRC_PATH) $(ARCHOPTS)
-LDFLAGS+=-mmacosx-version-min=10.9 -shared -lc++ $(ARCHOPTS)
+FLUIDSYNTH_PREFIX=/opt/local
+
+FLAGS+=-mmacosx-version-min=10.9 -D__MACOSX_CORE__ -I$(CK_SRC_PATH) $(ARCHOPTS) -I$(FLUIDSYNTH_PREFIX)/include
+LDFLAGS+=-mmacosx-version-min=10.9 -shared -lc++ $(ARCHOPTS) -L$(FLUIDSYNTH_PREFIX)/lib
 
 LD=clang++
 CXX=clang++
